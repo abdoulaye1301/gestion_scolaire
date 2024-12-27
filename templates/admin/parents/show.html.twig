@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Parents{% endblock %}
+
+{% block body %}
+    <h1>Parents</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ parent.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ parent.Nom }}</td>
+            </tr>
+            <tr>
+                <th>PrenomParent</th>
+                <td>{{ parent.PrenomParent }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ parent.Adresse }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ parent.Telephone }}</td>
+            </tr>
+            <tr>
+                <th>Sexe</th>
+                <td>{{ parent.Sexe }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_parentss_index') }}">back to list</a>
+
+    <a href="{{ path('app_parents_edit', {'id': parent.id}) }}">edit</a>
+
+    {{ include('admin/parents/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'admin/Dashboard/administration1.html.twig' %}
+
+{% block title %}Nouveau calenderier
+{% endblock %}
+
+{% block body %}
+	<div class="col-lg-4">
+		<a href="{{ path('app_calendar_index') }}">
+			<i class="glyphicon glyphicon-chevron-left"></i>
+			<span>Retour
+			</span>
+		</a>
+	</div><br>
+	<center>
+		<section class="content-header">
+			<h1>
+				Nouveau événement
+				<small>Formulaire</small>
+			</h1>
+		</section>
+	</center>
+	{{ include('admin/calendar/_form.html.twig') }}
+{% endblock %}

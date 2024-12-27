@@ -1,0 +1,58 @@
+{{ form_start(form) }}
+<!-- Main content -->
+<section
+	class="content">
+	<!-- Informations personnelles -->
+	<div class="box box-default">
+		<div class="box-header with-border">
+			<div class="box-tools pull-right">
+				<button type="button" class="btn btn-box-tool" data-widget="collapse">
+					<i class="fa fa-minus"></i>
+				</button>
+			</div>
+		</div>
+		<!-- /.box-header -->
+		<div class="box-body">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="form-group">
+						{{ form_row(form.Classe) }}
+					</div>
+					<div class="form-group">
+						{{ form_row(form.Matiere) }}
+					</div>
+					<div class="form-group">
+						{{ form_row(form.Semestre) }}
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="form-group">
+						{{ form_row(form.Enseignant) }}
+					</div>
+					<div class="form-group">
+						{{ form_row(form.Etat) }}
+					</div>
+					<div class="form-group">
+						{{ form_row(form.TypeCours) }}
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="form-group">
+						{{ form_row(form.DateCours) }}
+					</div>
+					<div class="form-group">
+						{{ form_row(form.DebutCours) }}
+					</div>
+					<div class="form-group">
+						{{ form_row(form.FinCours) }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Coordonnées -->
+	<center>
+		<button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
+	</center>
+</section>
+{{ form_end(form) }}

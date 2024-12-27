@@ -1,0 +1,22 @@
+{% extends 'admin/Dashboard/administration1.html.twig' %}
+
+{% block title %}Nouveau enseignant
+{% endblock %}
+
+{% block body %}
+	<div class="col-lg-4">
+		<a href="{{ path('app_professeurs_index') }}">
+			<i class="glyphicon glyphicon-chevron-left"></i>
+			<span>Retour
+			</span>
+		</a>
+	</div><br>
+	<section class="content-header">
+		<h1>
+			Nouveau enseignant
+			<small>Formulaire</small>
+		</h1>
+	</section>
+
+	{{ include('admin/professeurs/_form.html.twig') }}
+{% endblock %}

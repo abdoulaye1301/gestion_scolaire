@@ -1,0 +1,101 @@
+{% extends 'admin/Dashboard/administration1.html.twig' %}
+
+{% block title %}devoir
+{% endblock %}
+
+{% block body %}
+	{% if is_granted('ROLE_ADMIN') %}
+		<div class="row">
+			<center>
+				<div class="row">
+					<div class="col-lg-12">
+						<a href="{{ path('app_devoir_new') }}">
+							<i class="fa  fa-user-plus"></i>
+							<span>Nouveau devoir
+							</span>
+						</a>
+					</div>
+				</div>
+			</center>
+		</div>
+	{% endif %}
+	<!-- Content Wrapper. Contains page content -->
+	<div class="content">
+		<section class="content">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="box">
+						<div class="box-header">
+							<h3 class="box-title">Liste des devoirs</h3>
+						</div>
+						<!-- /.box-header -->
+						<div class="box-body">
+							<div class="row">
+								<div
+									class="col-sm-6">{#{% include "admin/Recherche/_recherche.html.twig" %}#}
+								</div>
+								<div class="col-sm-6">
+									<div id="example1_filter" class="dataTables_filter">
+										<label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"></label>
+									</div>
+								</div>
+							</div>
+							<table id="example1" class="table table-bordered table-hover">
+								<thead>
+									<tr>
+										<th>Matricule</th>
+										<th>Nom</th>
+										<th>Prenom</th>
+										<th>Devoir</th>
+										<th>Matière</th>
+										<th>Note</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+									{% for devoir in devoirs %}
+										<tr>
+											<td>{{ devoir.email.id }}</td>
+											<td>{{ devoir.email.Prenom | upper() }}</td>
+											<td>{{ devoir.email.Nom | upper() }}</td>
+											<td>{{ devoir.NomEvaluation.NomEvaluation }}</td>
+											<td>{{ devoir.Matiere.Matiere }}</td>
+											<td>{{ devoir.Note}}</td>
+											<td>
+												<a href="{{ path('app_devoir_show', {'id': devoir.id}) }}" class="glyphicon glyphicon-eye-open text-warning"></a>
+												{% if is_granted('ROLE_ADMIN') %}
+													<a href="{{ path('app_devoir_edit', {'id': elefe.id}) }}" class="glyphicon glyphicon-pencil"></a>
+												{% endif %}
+											</td>
+										</tr>
+									{% endfor %}
+								</tbody>
+							</table>
+							<div class="row">
+								<div class="col-sm-5">
+									<div class="dataTables_info" id="example1_info" role="status" aria-live="polite"></div>
+								</div>
+								<div class="col-sm-7">
+									<div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
+										<ul class="pagination">
+											{% if previous >= 0 %}
+												<li class="paginate_button previous" id="example1_previous">
+													<a href="{{path('app_devoir_index', {offset: previous})}}" aria-controls="example1">Précédent</a>
+												</li>
+											{% endif %}
+											{% if next < TousDevoirs|length %}
+												<li class="paginate_button next" id="example1_next">
+													<a href="{{path('app_devoir_index',{ offset: next})}}" aria-controls="example1">suivant</a>
+												</li>
+											{% endif %}
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+{% endblock %}

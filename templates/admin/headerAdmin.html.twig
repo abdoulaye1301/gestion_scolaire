@@ -1,0 +1,73 @@
+<!-- ***** Header Area Start ***** -->
+<header class="header-area bg-white">
+	<div class="">
+		<div class="row">
+			<div class="col-12">
+				<nav
+					class="main-nav">
+					<!-- ***** Logo Start ***** -->
+					<a href="" class="logo">
+						<img src="{{asset('assets/images/iconEtablissement.jpeg')}}" width="70px" height="70px">
+					</a>
+					<!-- ***** Logo End ***** -->
+					<!-- ***** Menu Start ***** -->
+					<ul class="nav">
+						<li class="scroll-to-sections">
+							<a href="#" class="navbar-brand text-body active">Accueil</a>
+						</li>
+						<li class="scroll-to-section ">
+							<a href="{{path('elevesAdmin')}}" class="navbar-brand text-body">Elèves</a>
+						</li>
+						<li class="scroll-to-section ">
+							<a href="{{path('ensegnantAdmin')}}" class="navbar-brand text-body">Enségnants</a>
+						</li>
+						<li class="scroll-to-section ">
+							<a href="{{path('parentsAdmin')}}" class="navbar-brand text-body">Parents d'élèves</a>
+						</li>
+						<li class="scroll-to-section ">
+							<a href="{{path('app_fullcalendar')}}" class="navbar-brand text-body">Calendrier scolaire</a>
+						</li>
+						<li class="scroll-to-section ">
+							<a href="{{path('admin')}}" class="navbar-brand text-body">Administration</a>
+						</li>
+						<li class="scroll-to-section ">
+							<a href="{{path('app_logout')}}" class="navbar-brand text-body">Me déconnecter</a>
+						</li>
+					</ul>
+					<!-- ***** Menu End ***** -->
+				</nav>
+			</div>
+		</div>
+	</div>
+</header>
+<!-- ***** Header Area End ***** -->
+{#<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+					<div class="container-fluid">
+						<a href="" class="logo">
+							<img src="{{asset('fichiers/assets/images/logo.jpeg')}}" width="50px" height="50px">
+						</a>
+						<ul class="nav">
+							<li class="scroll-to-section">
+								<a href="{{path('Accueil')}}" class=" navbar-brand">Accueil</a>
+							</li>
+							<a href="" class=" navbar-brand">Employés</a>
+				</li>
+				<li class="scroll-to-section">
+					<a href="{{path('etatCivil')}}" class=" navbar-brand">Etat Civil</a>
+				</li>
+				<li class="scroll-to-section">
+					<a href="{{path('comptable')}}" class=" navbar-brand">Comptable</a>
+				</li>
+				<li class="submenu">
+					<a href="javascript:;" class="navbar-brand text-white">Utilisateurs</a>
+					<ul>
+						<li><a href="/login">Ajout</a></li>
+						<li><a href="/liste_utilisateurs">Liste</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="{{path('app_logout')}}" class=" navbar-brand">Déconnecter</a>
+				</li>
+				<li class="scroll-to-section navbar-brand text-dark">{{ app.user.prenom}}
+					{{ app.user.nom}}
+				</li></ul></div></nav>#}

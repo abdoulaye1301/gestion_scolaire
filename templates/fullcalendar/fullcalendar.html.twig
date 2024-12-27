@@ -1,0 +1,82 @@
+{% extends 'admin/Dashboard/administration1.html.twig' %}
+{% block title %}
+	Fullcalendar
+{% endblock %}
+{% block stylesheets %}
+	<style>
+		#calendrier {
+			width: 80%;
+			margin: auto;
+		}
+	</style>
+{% endblock %}
+
+{% block body %}
+
+	<div class="col-md-3">
+		<div class="box box-solid">
+			<div class="box-header with-border">
+				<h4 class="box-title">Menu calendrier</h4>
+			</div>
+			<div
+				class="box-body">
+				<!-- the events -->
+				<div id="external-events">
+					<div class="external-event bg-light-blue">
+						<a href="{{path('app_calendar_index')}}" class="text-black">Lister les événemets</a>
+					</div>
+					<div class="external-event bg-yellow">
+						<a href="{{path('app_calendar_new')}}">Ajouter un événement</a>
+					</div>
+				</div>
+			</div>
+			<!-- /.box-body -->
+		</div>
+	</div>
+	<!-- /.col -->
+	<div id='calendrier'></div>
+{% endblock %}
+
+{% block javascripts %}
+	<script>
+		window.onload = () => {
+let calendarElt = document.querySelector("#calendrier")
+
+let calendar = new FullCalendar.Calendar(calendarElt, {
+initialView: 'dayGridMonth',
+locale: 'fr',
+timeZone: 'Afrique/Senegal',
+headerToolbar: {
+start: 'prev,next today',
+center: 'title',
+end: 'dayGridMonth,timeGridWeek'
+},
+events: {{ data|raw }},
+editable: true,
+eventResizableFromStart: true
+})
+
+calendar.on('eventchange', (e) => {
+let url = `/api/${
+e.envent.id
+}/edit`
+let donnees = {
+"title": e.event.title,
+"description": e.event.extendedProps.description,
+"start": e.event.start,
+"end": e.event.end,
+"backgroundColor": e.event.backgroundColor,
+"borderColor": e.event.borderColor,
+"allDay": e.event.allDay
+}
+
+let xhr = new XML_HttpRequest
+
+xhr.open("PUT", url)
+xhr.send(JSON.stringify(donnees))
+})
+
+calendar.render()
+}
+	</script>
+{% endblock %}

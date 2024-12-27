@@ -1,0 +1,68 @@
+{% extends 'admin/Dashboard/administration1.html.twig' %}
+
+{% block title %}Calenderier
+{% endblock %}
+
+{% block body %}
+	<h1>Calenderier</h1>
+
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Id</th>
+				<td>{{ calendar.id }}</td>
+			</tr>
+			<tr>
+				<th>Title</th>
+				<td>{{ calendar.title }}</td>
+			</tr>
+			<tr>
+				<th>Start</th>
+				<td>{{ calendar.start ? calendar.start|date('Y-m-d H:i:s') : '' }}</td>
+			</tr>
+			<tr>
+				<th>End</th>
+				<td>{{ calendar.end ? calendar.end|date('Y-m-d H:i:s') : '' }}</td>
+			</tr>
+			<tr>
+				<th>Description</th>
+				<td>{{ calendar.description }}</td>
+			</tr>
+			<tr>
+				<th>All_day</th>
+				<td>{{ calendar.allDay ? 'Yes' : 'No' }}</td>
+			</tr>
+			<tr>
+				<th>Background_color</th>
+				<td>{{ calendar.backgroundColor }}</td>
+			</tr>
+			<tr>
+				<th>Border_color</th>
+				<td>{{ calendar.borderColor }}</td>
+			</tr>
+			<tr>
+				<th>Text_color</th>
+				<td>{{ calendar.textColor }}</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="row">
+		<div class="col-lg-4">
+			<a href="{{ path('app_calendar_index') }}">
+				<i class="glyphicon glyphicon-chevron-left"></i>
+				<span>Retour
+				</span>
+			</a>
+		</div>
+		<div class="col-lg-4">
+			<a href="{{ path('app_calendar_edit', {'id': calendar.id}) }}">
+				<i class="glyphicon glyphicon-pencil"></i>
+				<span>Modifier
+				</span>
+			</a>
+		</div>
+		<div class="col-lg-4">
+			{{ include('admin/calendar/_delete_form.html.twig') }}
+		</div>
+	</div>
+{% endblock %}

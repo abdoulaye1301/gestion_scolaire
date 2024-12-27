@@ -1,0 +1,31 @@
+{% extends 'admin/Dashboard/administration1.html.twig' %}
+
+{% block title %}Inscription
+{% endblock %}
+
+{% block body %}
+	<div class="row bg-default container-fluide">
+		<center>
+			<h1>Ajouter un nouveau utilisateur</h1>
+		</center>
+	</div>
+	<section class="container my-3" style=" margin-top:10px; margin-left:200px;">
+		<div class="row">
+			<div class="col-lg-6">
+				{{ form_errors(registrationForm) }}
+
+				{{ form_start(registrationForm) }}
+				{{ form_row(registrationForm.email) }}
+				{{ form_row(registrationForm.plainPassword) }}
+				{{ form_row(registrationForm.Nom) }}
+				{{ form_row(registrationForm.Prenom) }}
+				{{ form_row(registrationForm.Sexe) }}
+				{{ form_row(registrationForm.DateNaissance) }}
+				{{ form_row(registrationForm.agreeTerms) }}
+
+				<button type="submit" class="btn btn-lg btn-primary">Inscrire</button>
+				{{ form_end(registrationForm) }}
+			</div>
+		</div>
+	</section>
+{% endblock %}

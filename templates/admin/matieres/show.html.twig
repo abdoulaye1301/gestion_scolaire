@@ -1,0 +1,68 @@
+{% extends 'admin/Dashboard/administration1.html.twig' %}
+
+{% block title %}Matieres
+{% endblock %}
+
+{% block body %}
+	<section class="content-header">
+		<h1>Les détails sur
+			{{matiere.Matiere}}
+		</h1>
+	</section>
+
+	<!-- Main content -->
+	<section
+		class="content">
+		<!-- Informations personnelles -->
+		<div class="box box-default">
+			<div class="box-header with-border">
+				<div class="box-tools pull-right">
+					<button type="button" class="btn btn-box-tool" data-widget="collapse">
+						<i class="fa fa-minus"></i>
+					</button>
+				</div>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Matricule :
+							</label>
+							{{ matiere.id }}
+						</div>
+						<div class="form-group">
+							<label>Matiere :
+							</label>
+							{{ matiere.Matiere }}
+						</div>
+						<div class="form-group">
+							<label>Coefficient de la matiere :
+							</label>
+							{{ matiere.CoefMatiere }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="row">
+		<div class="col-lg-4">
+			<a href="{{ path('app_matieres_index') }}">
+				<i class="glyphicon glyphicon-chevron-left"></i>
+				<span>Retour
+				</span>
+			</a>
+		</div>
+		<div class="col-lg-4">
+			<a href="{{ path('app_matieres_edit', {'id': matiere.id}) }}">
+				<i class="glyphicon glyphicon-pencil"></i>
+				<span>Modifier
+				</span>
+			</a>
+		</div>
+		<div class="col-lg-4">
+			{{ include('admin/matieres/_delete_form.html.twig') }}
+		</div>
+	</div>
+{% endblock %}

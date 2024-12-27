@@ -1,0 +1,247 @@
+{% extends 'admin/Dashboard/administration1.html.twig' %}
+
+{% block title %}Inscription
+{% endblock %}
+
+{% block body %}
+	<section class="content-header">
+		<h1>
+			Informations de
+			{{inscription.Eleve.Prenom}}
+			{{inscription.Eleve.Nom}}
+		</h1>
+	</section>
+
+	<!-- Main content -->
+	<section
+		class="content">
+		<!-- Informations personnelles -->
+		<div class="box box-default">
+			<div class="box-header with-border">
+				<h3 class="box-title">Informations personnelles</h3>
+
+				<div class="box-tools pull-right">
+					<button type="button" class="btn btn-box-tool" data-widget="collapse">
+						<i class="fa fa-minus"></i>
+					</button>
+				</div>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Matricule inscription :
+							</label>
+							{{ inscription.id }}
+						</div>
+						<div class="form-group">
+							<label>Prénom :
+							</label>
+							{{ inscription.Eleve.Prenom }}
+						</div>
+						<div class="form-group">
+							<label>Nom :
+							</label>
+							{{ inscription.Eleve.Nom }}
+						</div>
+						<div class="form-group">
+							<label>Photo :
+							</label>
+							<img style="width: 50px; heigth: 50px;" src="{{asset('uploads/enseignants/'~ inscription.Eleve.imageFileName)}}" alt="">
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group">
+							<label>Lieu de naissance :
+							</label>
+							{{ inscription.Eleve.LieuNaissance }}
+						</div>
+						<div class="form-group">
+							<label>Sexe :
+							</label>
+							{{ inscription.Eleve.Sexe.Sexe }}
+						</div>
+						<div class="form-group">
+							<label>Date de naissance :
+							</label>
+							{{ inscription.Eleve.DateNaissance ? inscription.Eleve.DateNaissance|date('Y-m-d') : ''  }}
+						</div>
+					</div>
+					<div class="col-md-4"></div>
+				</div>
+			</div>
+		</div>
+		<!-- Informations personnelles -->
+		<div class="box box-default">
+			<div class="box-header with-border">
+				<h3 class="box-title">Informations scolaire</h3>
+
+				<div class="box-tools pull-right">
+					<button type="button" class="btn btn-box-tool" data-widget="collapse">
+						<i class="fa fa-minus"></i>
+					</button>
+				</div>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Matricule :
+							</label>
+							{{ inscription.Eleve.id }}
+						</div>
+						<div class="form-group">
+							<label>Année :
+							</label>
+							{{ inscription.Annee.Annee }}
+						</div>
+						<div class="form-group">
+							<label>Classe :
+							</label>
+							{{ inscription.NomClasse.NomClasse }}
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group">
+							<label>Statut :
+							</label>
+							{{ inscription.Statut }}
+						</div>
+						<div class="form-group">
+							<label>Montant Inscription :
+							</label>
+							{{ inscription.Montant }}
+						</div>
+						<div class="form-group">
+							<label>Date d'inscription :
+							</label>
+							{{ inscription.DateInscription ? inscription.DateInscription|date('Y-m-d H:i:s') : ''  }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Coordonnées -->
+		<div class="box box-default">
+			<div class="box-header with-border">
+				<h3 class="box-title">Coordonnées</h3>
+
+				<div class="box-tools pull-right">
+					<button type="button" class="btn btn-box-tool" data-widget="collapse">
+						<i class="fa fa-minus"></i>
+					</button>
+				</div>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<div class="row">
+					<div
+						class="col-md-6">
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Adresse :
+							</label>
+							{{ inscription.Eleve.Adresse }}
+						</div>
+						<div class="form-group">
+							<label>E-mail :
+							</label>
+							{{ inscription.Eleve.email }}
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group">
+							<label>Ville :
+							</label>
+							{{ inscription.Eleve.Ville }}
+						</div>
+						<div class="form-group">
+							<label>Téléphone :
+							</label>
+							{{ inscription.Eleve.Telephone }}
+						</div>
+					</div>
+				</div>
+				<!-- /.row -->
+			</div>
+		</div>
+		<!-- Informations parents et tuteur -->
+		<div class="box box-default">
+			<div class="box-header with-border">
+				<h3 class="box-title">Informations supplémentaire</h3>
+
+				<div class="box-tools pull-right">
+					<button type="button" class="btn btn-box-tool" data-widget="collapse">
+						<i class="fa fa-minus"></i>
+					</button>
+				</div>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<div class="row">
+					<div
+						class="col-md-6">
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Prénom du Père :
+							</label>
+							{{ inscription.Eleve.PrenomPere }}
+						</div>
+						<div class="form-group">
+							<label>Téléphone du Parent :
+							</label>
+							{{ inscription.Eleve.TelephoneParent.Telephone }}
+						</div>
+						<div class="form-group">
+							<label>Prénom du Mère :
+							</label>
+							{{ inscription.Eleve.PrenomMere }}
+						</div>
+						<div class="form-group">
+							<label>Nom du Mère :
+							</label>
+							{{ inscription.Eleve.NomMere }}
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group">
+							<label>Prénom du Tuteur :
+							</label>
+							{{ inscription.Eleve.PrenomTuteur }}
+						</div>
+						<div class="form-group">
+							<label>Nom du Tuteur :
+							</label>
+							{{ inscription.Eleve.NomTuteur }}
+						</div>
+						<div class="form-group">
+							<label>Téléphone du Tuteur :
+							</label>
+							{{ inscription.Eleve.TelephoneTuteur }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="row">
+			<div class="col-lg-4">
+				<a href="{{ path('app_inscription_index') }}">
+					<i class="glyphicon glyphicon-chevron-left"></i>
+					<span>Retour
+					</span>
+				</a>
+			</div>
+			<div class="col-lg-4">
+				<a href="{{ path('app_inscription_edit', {'id': inscription.id}) }}">
+					<i class="glyphicon glyphicon-pencil"></i>
+					<span>Modifier
+					</span>
+				</a>
+			</div>
+			<div class="col-lg-4">
+				{{ include('admin/inscription/_delete_form.html.twig') }}
+			</div>
+		</div>
+	{% endblock %}

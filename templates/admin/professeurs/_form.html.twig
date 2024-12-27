@@ -1,0 +1,133 @@
+{{ form_start(form) }}
+<!-- Main content -->
+<section
+	class="content">
+	<!-- Informations personnelles -->
+	<div class="box box-default">
+		<div class="box-header with-border">
+			<h3 class="box-title">Informations personnelles</h3>
+
+			<div class="box-tools pull-right">
+				<button type="button" class="btn btn-box-tool" data-widget="collapse">
+					<i class="fa fa-minus"></i>
+				</button>
+			</div>
+		</div>
+		<!-- /.box-header -->
+		<div class="box-body">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						{{ form_row(form.Prenom) }}
+					</div>
+					<div class="form-group">
+						{{ form_row(form.LieuNaissance) }}
+					</div>
+					<div class="form-group">
+						{{ form_row(form.photo) }}
+						<small>{{ form_help(form.photo) }}</small>
+					</div>
+					<div class="form-error">
+						{{ form_errors(form.photo) }}
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						{{ form_row(form.Nom) }}
+					</div>
+					<div class="form-group">
+						{{ form_row(form.Sexe) }}
+					</div>
+					<div class="form-group">
+						{{ form_row(form.DateNaissance) }}
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Coordonnées -->
+		<div class="box box-default">
+			<div class="box-header with-border">
+				<h3 class="box-title">Coordonnées</h3>
+
+				<div class="box-tools pull-right">
+					<button type="button" class="btn btn-box-tool" data-widget="collapse">
+						<i class="fa fa-minus"></i>
+					</button>
+				</div>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<div class="row">
+					<div
+						class="col-md-6">
+						<!-- /.form-group -->
+						<div class="form-group">
+							{{ form_row(form.Adresse) }}
+						</div>
+						<div class="form-group">
+							{{ form_row(form.email) }}
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group">
+							{{ form_row(form.Ville) }}
+						</div>
+						<div class="form-group">
+							{{ form_row(form.Telephone) }}
+						</div>
+					</div>
+				</div>
+				<!-- /.row -->
+			</div>
+		</div>
+		<!-- Informations parents et tuteur -->
+		<div class="box box-default">
+			<div class="box-header with-border">
+				<h3 class="box-title">Informations professionnelles</h3>
+
+				<div class="box-tools pull-right">
+					<button type="button" class="btn btn-box-tool" data-widget="collapse">
+						<i class="fa fa-minus"></i>
+					</button>
+				</div>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<div class="row">
+					<div
+						class="col-md-6">
+						<!-- /.form-group -->
+						<div class="form-group">
+							{{ form_row(form.Contrat) }}
+						</div>
+						<div class="form-group">
+							{{ form_row(form.Profession) }}
+						</div>
+						<div class="form-group">
+							{{ form_row(form.Nationalite) }}
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group">
+							{{ form_row(form.Diplome) }}
+						</div>
+						<div class="form-group">
+							{{ form_row(form.Salaire) }}
+						</div>
+						<div class="form-group">
+							{{ form_row(form.DebutContrat) }}
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group">
+							{{ form_row(form.FinContrat) }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<center>
+		<button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
+	</center>
+	{{ form_end(form) }}

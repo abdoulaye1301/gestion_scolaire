@@ -1,0 +1,39 @@
+<table class="table">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Nom</th>
+			<th>Prenom</th>
+			<th>DateNaissance</th>
+			<th>LieuNaissance</th>
+			<th>DateEnregistrement</th>
+			<th>Telephone</th>
+			<th>Email</th>
+			<th>actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for elefe in eleves %}
+			<tr>
+				<td>{{ elefe.id }}</td>
+				<td>{{ elefe.Nom }}</td>
+				<td>{{ elefe.Prenom }}</td>
+				<td>{{ elefe.DateNaissance ? elefe.DateNaissance|date('Y-m-d') : '' }}</td>
+				<td>{{ elefe.LieuNaissance }}</td>
+				<td>{{ elefe.DateEnregistrement ? elefe.DateEnregistrement|date('Y-m-d H:i:s') : '' }}</td>
+				<td>{{ elefe.Telephone }}</td>
+				<td>{{ elefe.email }}</td>
+				<td>
+					<a href="{{ path('app_eleves_show', {'id': elefe.id}) }}">show</a>
+					<a href="{{ path('app_eleves_edit', {'id': elefe.id}) }}">edit</a>
+				</td>
+			</tr>
+		{% else %}
+			<tr>
+				<td colspan="9">no records found</td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+<a href="{{ path('app_eleves_new') }}">Create new</a>

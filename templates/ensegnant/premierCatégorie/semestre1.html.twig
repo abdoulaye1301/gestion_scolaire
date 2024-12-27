@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+{% block header%}
+	{% include "ensegnant/headerEnsegnants.html.twig" %}
+{% endblock %}
+{% block body %}
+	<div class="row" style=" margin-top:100px;">
+		<div class="col-sm-12 text-center bg-primary ">
+			<h1>Les devoirs du premier semestre</h1>
+		</div>
+		<div class="col-3 ">
+			{% for eleve in App.eleves %}
+				{% if eleve.IdEvaluation != eleve.IdEvaluation +1 %}
+					<div class="card bg-primary h-100">
+						<div class="card-body">
+							<h5 class="card-title">{{eleve.IdEvaluation.devoirs.numeroDevoir}}</h5>
+							<a href="#" class="btn btn-primary">Détails</a>
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+	{% endblock %}

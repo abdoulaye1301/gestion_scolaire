@@ -1,0 +1,62 @@
+{% extends 'admin/Dashboard/administration1.html.twig' %}
+
+{% block title %}AnneeScolaire
+{% endblock %}
+
+{% block body %}
+	<section class="content-header">
+		<h1>Les détails de l'année scolaire
+		</h1>
+	</section>
+
+	<!-- Main content -->
+	<section
+		class="content">
+		<!-- Informations personnelles -->
+		<div class="box box-default">
+			<div class="box-header with-border">
+				<div class="box-tools pull-right">
+					<button type="button" class="btn btn-box-tool" data-widget="collapse">
+						<i class="fa fa-minus"></i>
+					</button>
+				</div>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Matricule :
+							</label>
+							{{ annee_scolaire.id }}
+						</div>
+						<div class="form-group">
+							<label>Année :
+							</label>
+							{{ annee_scolaire.Annee }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4">
+				<a href="{{ path('app_annee_scolaire_index') }}">
+					<i class="glyphicon glyphicon-chevron-left"></i>
+					<span>Retour
+					</span>
+				</a>
+			</div>
+			<div class="col-lg-4">
+				<a href="{{ path('app_annee_scolaire_edit', {'id': annee_scolaire.id}) }}">
+					<i class="glyphicon glyphicon-pencil"></i>
+					<span>Modifier
+					</span>
+				</a>
+			</div>
+			<div class="col-lg-4">
+				{{ include('admin/annee_scolaire/_delete_form.html.twig') }}
+			</div>
+		</div>
+	</section>
+{% endblock %}

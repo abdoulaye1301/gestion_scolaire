@@ -1,0 +1,26 @@
+{% extends 'admin/Dashboard/administration1.html.twig' %}
+
+{% block title %}Modication salle
+{% endblock %}
+
+{% block body %}
+	<div class="row">
+		<div class="col-lg-2">
+			<a href="{{ path('app_salles_index') }}">
+				<i class="glyphicon glyphicon-chevron-left"></i>
+				<span>Retour
+				</span>
+			</a>
+		</div>
+		<div class="col-lg-1">
+			{{ include('admin/salles/_delete_form.html.twig') }}
+		</div>
+	</div><br>
+	<section class="content-header">
+		<h1>
+			Modification de la salle
+			<small>Formulaire</small>
+		</h1>
+	</section>
+	{{ include('admin/salles/_form.html.twig', {'button_label': 'Modifier'}) }}
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'admin/Dashboard/administration1.html.twig' %}
+
+{% block title %}nouveau emploi du temps
+{% endblock %}
+
+{% block body %}
+	<div class="col-lg-4">
+		<a href="{{ path('app_emploi_temps_index') }}">
+			<i class="glyphicon glyphicon-chevron-left"></i>
+			<span>Retour
+			</span>
+		</a>
+	</div><br>
+	<section class="content-header">
+		<h1>
+			Nouveau emploi temps
+			<small>Formulaire</small>
+		</h1>
+	</section>
+	{{ include('admin/emploi_temps/_form.html.twig') }}
+{% endblock %}

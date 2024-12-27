@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block header%}
+	{% include "ensegnant/headerEnsegnants.html.twig" %}
+{% endblock %}
+{% block body %}
+	<div class="row" style=" margin-top:100px;">
+		<div class="col-sm-6 text-center bg-primary mb-3 mb-sm-0">
+			<div class="card h-25">
+				<div class="card-body bg-primary">
+					<h5 class="card-title">Devoirs</h5>
+					<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+					<a href="#" class="btn btn-primary">Détails</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 text-center bg-primary ">
+			<div class="card">
+				<div class="card-body bg-primary">
+					<h5 class="card-title">Composition</h5>
+					<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+					<a href="#" class="btn btn-primary">Détails</a>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

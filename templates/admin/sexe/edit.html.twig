@@ -1,0 +1,26 @@
+{% extends 'admin/Dashboard/administration1.html.twig' %}
+
+{% block title %}Modification Sexe
+{% endblock %}
+
+{% block body %}
+	<div class="row">
+		<div class="col-lg-2">
+			<a href="{{ path('app_sexe_index') }}">
+				<i class="glyphicon glyphicon-chevron-left"></i>
+				<span>Retour
+				</span>
+			</a>
+		</div>
+		<div class="col-lg-1">
+			{{ include('admin/sexe/_delete_form.html.twig') }}
+		</div>
+	</div><br>
+	<section class="content-header">
+		<h1>
+			Modification du type de sexe
+			<small>Formulaire</small>
+		</h1>
+	</section>
+	{{ include('admin/sexe/_form.html.twig', {'button_label': 'Modifier'}) }}
+{% endblock %}

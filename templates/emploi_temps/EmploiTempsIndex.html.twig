@@ -1,0 +1,46 @@
+{% extends 'admin/Dashboard/administration1.html.twig' %}
+
+{% block title %}Emplois du temps
+{% endblock %}
+
+{% block body %}
+	<h1>Liste des emplois du temps</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Jour</th>
+				<th>Heure de début</th>
+				<th>Heure de fin</th>
+				<th>Matière</th>
+				<th>Salle</th>
+				<th>Enseignant(e)</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for emploi_temp in emploi_temps %}
+				<tr>
+					<td>{{ emploi_temp.id }}</td>
+					<td>{{ emploi_temp.Jour }}</td>
+					<td>{{ emploi_temp.HeureDebut ? emploi_temp.HeureDebut|date('H:i:s') : '' }}</td>
+					<td>{{ emploi_temp.HeureFin ? emploi_temp.HeureFin|date('H:i:s') : '' }}</td>
+					<td>{{ emploi_temp.Matieres.Matiere }}</td>
+					<td>{{ emploi_temp.Salles.NomSalle }}</td>
+					<td>{{ emploi_temp.Professeurs.Prenom }}</td>
+					<td>
+						<a href="{{ path('app_emploi_temps_show', {'id': emploi_temp.id}) }}">show</a>
+						<a href="{{ path('app_emploi_temps_edit', {'id': emploi_temp.id}) }}">edit</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="6">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_emploi_temps_new') }}">Create new</a>
+{% endblock %}

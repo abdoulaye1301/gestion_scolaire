@@ -1,0 +1,52 @@
+{% extends 'admin/Dashboard/administration1.html.twig' %}
+
+{% block title %}Détail salle
+{% endblock %}
+
+{% block body %}
+	<div class="row">
+		<center>
+			<h1>Les détails de la salle</h1>
+		</center>
+	</div>
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Identifiant</th>
+				<td>{{ salle.id }}</td>
+			</tr>
+			<tr>
+				<th>Nom de la salle</th>
+				<td>{{ salle.NomSalle }}</td>
+			</tr>
+			<tr>
+				<th>Capacité d'accueil</th>
+				<td>{{ salle.CapaciteAccueil }}</td>
+			</tr>
+			<tr>
+				<th>Emplacement</th>
+				<td>{{ salle.Emplacement }}</td>
+			</tr>
+			{#<tr><th>Classe</th><td>{{ salle.Classe.NomClasse }}</td></tr>#}
+		</tbody>
+	</table>
+	<div class="row">
+		<div class="col-lg-4">
+			<a href="{{ path('app_salles_index') }}">
+				<i class="glyphicon glyphicon-chevron-left"></i>
+				<span>Retour
+				</span>
+			</a>
+		</div>
+		<div class="col-lg-4">
+			<a href="{{ path('app_salles_edit', {'id': salle.id}) }}">
+				<i class="glyphicon glyphicon-pencil"></i>
+				<span>Modifier
+				</span>
+			</a>
+		</div>
+		<div class="col-lg-4">
+			{{ include('admin/salles/_delete_form.html.twig') }}
+		</div>
+	</div>
+{% endblock %}
